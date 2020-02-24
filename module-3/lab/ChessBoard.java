@@ -1,6 +1,6 @@
 // Daniel Oh
-// CSCI 165
-// 2D java drawing 
+// CSCI 165 
+// Checker board
 
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -8,21 +8,21 @@ import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
-import java.util.Random;
 
-class Drawer extends JPanel {
+
+class ChessBoard extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private JFrame window = new JFrame();
 
-    public Drawer() {
+    public ChessBoard() {
         initUI();
     }
 
     private void initUI() {
         window.add(this);
-        window.setTitle("2D Drawing");
-        window.setSize(500, 500);
+        window.setTitle("ChessBoard");
+        window.setSize(416, 439);
         window.setLocationRelativeTo(null);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
@@ -51,54 +51,43 @@ class Drawer extends JPanel {
 
         //<====> ADD YOUR DRAWING CODE HERE <==========>//
         
-        // draw rectangle
-        int x = 10, y = 10;
+        //draw squares
         
-        for(int i = 0; i < 30; i++) {
-        	g2d.drawRect(x, y, 10, 10);	
-        	y += 15;
-       
-        }// end of for loop
         
-        // fill rectangle 
-     	g2d.setColor(new Color(0,0,0));
-     	y = 10; x += 15;
-     	
-     	for(int i = 0; i < 30; i++) {
-        	g2d.fillRect(x, y, 10, 10);	
-        	y += 15;
+        int x = 0, y = 0;
+        int width = 50;
+        int height = 50;
         
-      	              	  
+        
+        for(int i = 0; i < 4; i++) {
+        	for(int f = 0; f < 4; f++) {
+        		g2d.setColor(Color.BLACK);
+        		g2d.fillRect(x, y, width, height);
+        		y += 50;
+        		g2d.setColor(Color.RED);
+        		g2d.fillRect(x, y, width, height);
+        		y += 50;		 
+        	} // end of nested loop 
+        	y = 0;
+        	x += 50;
+        	
+        	for(int f = 0; f < 4; f++) {
+        		g2d.setColor(Color.RED);
+        		g2d.fillRect(x, y, width, height);
+        		y += 50;
+        		g2d.setColor(Color.BLACK);
+        		g2d.fillRect(x, y, width, height);
+       		 	y += 50;		 
+        		} // end of nested loop 
+        	y = 0;
+        	x += 50;
+       	
+  
+        	
+        	
         } // end of for loop
-       
-     	// draw filled ovals
-     	
-     	g2d.setColor(new Color(200,200,200)); // gray
-     	y = 10; x += 15;
-     	
-     	for(int i = 0; i < 30; i++) {
-        	g2d.fillOval(x, y, 10, 10);	
-        	y += 15;
-     	
-     	} // end of for loop
-     	
-     	// text in the middle 
-     	int width = getWidth();
-     	int height = getHeight();
-     	g2d.setColor(Color.RED);
-     	String s = "I'm a graphics programmer now!!";
-     	g2d.drawString(s, (width/2) - s.length() * 3, height / 2);
-     	
-     	// 2000 random magenta collored tick marks
-     	g2d.setColor(Color.MAGENTA);
-     	Random random = new Random();
-     	for(int i = 0; i < 2000; i++) {
-     	x = Math.abs(random.nextInt()) % width;
-     	y = Math.abs(random.nextInt()) % height;
-     	g2d.drawLine(x, y, x+2, y+2);
-     		
-     	} // end of for loop
-     	
+        
+ 
      	
     }
     
@@ -106,7 +95,7 @@ class Drawer extends JPanel {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() { 
-                Drawer ex = new Drawer();
+                ChessBoard ex = new ChessBoard();
                 ex.setVisible(true);
             }
         });
