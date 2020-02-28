@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 // Daniel Oh
 // CSCI 165
-// Methods for map data drawer
+// Methods for map data drawer.
 public class MapData {
 	
 	// fill the array from dat files
