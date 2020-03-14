@@ -185,12 +185,15 @@ public class ElectionDriver {
 		
 		ElectionDriver ed = new ElectionDriver();
 		ed.fillList();
-		System.out.println(ed.findLargestMargin());
-		System.out.println(ed.findLargestMargin("OR"));
-		String [] stateList = ed.getStateTotals();
+		System.out.printf("This is the margin of the victor of the whole country : %d" ,ed.findLargestMargin());
+		System.out.printf("\nThis is the margin of the victor in Oregon: %d", ed.findLargestMargin("OR"));
+		System.out.printf("\nThis is the margin of the victor in NewYork: %d", ed.findLargestMargin("NY"));
 		
-		for (int i = 0; i < 51; i++)
-			System.out.println(stateList[i]);
+		
+		String [] stateList = ed.getStateTotals();
+		System.out.println();
+		System.out.println(stateList[37]); // OR
+		System.out.println(stateList[34]); // NY
 			
 	} // end of main
 
