@@ -209,7 +209,7 @@ class FractionTest {
 		
 		f 	= new Fraction(15, 6);
 		f2 	= new Fraction(11, 7);
-		assertTrue(f.multiply(f2).equals(new Fraction(165, 42)));
+		assertTrue(f.multiply(f2).equals(new Fraction(55, 14)));
 	}
 	
 	@Test
