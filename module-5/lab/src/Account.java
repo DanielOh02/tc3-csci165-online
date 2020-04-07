@@ -16,17 +16,17 @@ public class Account {
 	private double discountLevel = 0.0;
 	
 	public Account(Customer customer){
-		
+		this.customer = new Customer(customer);
 		
 	}
 	
 	public Account(Customer customer, double balance, double creditLimit, Date date) {
 		
-		this.customer = customer;
+		this.customer = new Customer(customer);
 		this.balance = balance;
 		this.creditLimit = creditLimit;
 		this.date = date; 
-		this.accountID = makeID(customer);
+		this.accountID = makeID(this.customer);
 	
 	}
 	
